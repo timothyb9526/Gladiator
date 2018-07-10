@@ -1,15 +1,15 @@
 from core import *
 
 
-def gladiator(gladiator1, gladiator2):
+def gladiator_1_turn(gladiator1, gladiator2):
     while True:
-
         attack_method = input(
             'gladiator1 .... What would you like to do?\n- [A]ttack\n- [P]ass\n- [Q]uit\n- [H]eal\n'
         )
         if attack_method == 'a':
 
             attack(gladiator1, gladiator2)
+            print('WE\'RE UNDER ATTACK!!!!')
             print('gladiator1', gladiator1['health'], 'HP', '|||',
                   gladiator1['rage'], 'Rage', '|||', gladiator1['power'],
                   'power')
@@ -25,16 +25,23 @@ def gladiator(gladiator1, gladiator2):
             break
         elif attack_method == 'h':
             heal(gladiator1)
+
+            heal_options = input('Would you like to use rage or power?\n')
+            if heal_options == 'rage':
+                heal(gladiator1)
+            elif heal_options == 'power':
+                heal(gladiator2)
             print('gladiator1', gladiator1['health'], 'HP', '|||',
                   gladiator1['rage'], 'Rage', '|||', gladiator1['power'],
                   'power')
             print('gladiator2', gladiator2['health'], 'HP', '|||',
                   gladiator2['rage'], 'Rage', '|||', gladiator2['power'],
                   'power')
+
             break
 
 
-def gladiator2(gladiator1, gladiator2):
+def gladiator_2_turn(gladiator1, gladiator2):
     while True:
         gladiator_2 = input(
             'gladiator2 .... What would you like to do?\n- [A]ttack\n- [P]ass\n- [Q]uit\n- [H]eal\n'
@@ -43,6 +50,7 @@ def gladiator2(gladiator1, gladiator2):
         if gladiator_2 == 'a':
 
             attack(gladiator2, gladiator1)
+            print('WE\'RE UNDER ATTACK!!!!!')
             print('gladiator1', gladiator1['health'], 'HP', '|||',
                   gladiator1['rage'], 'Rage', '|||', gladiator1['power'],
                   'power')
@@ -69,22 +77,10 @@ def gladiator2(gladiator1, gladiator2):
 
 
 def battle():
-    g1 = {
-        'health': 300,
-        'rage': 0,
-        'damage_low': 10,
-        'damage_high': 20,
-        'power': 0
-    }
 
-    g2 = {
-        'health': 300,
-        'rage': 0,
-        'damage_low': 10,
-        'damage_high': 20,
-        'power': 0
-    }
+    g1 = new_gladiator(200, 0, 10, 20, 0, 'warhammer')
 
+    g2 = new_gladiator(200, 0, 10, 20, 0, 'sword')
     while True:
         if is_dead(g1) == True:
             print('GLADIATOR2: DID NOT SURVIVE!!!')
@@ -92,7 +88,7 @@ def battle():
             break
             exit()
 
-        gladiator(g1, g2)
+        gladiator_1_turn(g1, g2)
 
         if is_dead(g2) == True:
             print('GLADIATOR1: DID NOT SURVIVE!!!')
@@ -100,7 +96,7 @@ def battle():
             break
             exit()
 
-        gladiator2(g1, g2)
+        gladiator_2_turn(g1, g2)
 
 
 def main():
