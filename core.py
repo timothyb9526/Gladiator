@@ -11,6 +11,11 @@ def new_gladiator(health, rage, damage_low, damage_high):
     return gladiator
 
 
+def new_weapons(attack_dmage):
+
+    weapons = {'Bow':'Attack damage': 20}, {'sword': 'Attack damage': 30}
+
+
 def attack(attacker, defender):
     damage_dealt = randint(attacker['damage_low'], attacker['damage_high'])
     critical_hit = damage_dealt * 2
@@ -33,7 +38,7 @@ def heal(gladiator):
 
 
 def is_dead(gladiator):
-    if gladiator['health'] == 0:
+    if gladiator['health'] <= 0:
         return True
     else:
         return False
