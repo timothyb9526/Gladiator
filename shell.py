@@ -10,12 +10,15 @@ def gladiator_1_turn(gladiator1, gladiator2):
 
             attack(gladiator1, gladiator2)
             print('WE\'RE UNDER ATTACK!!!!')
-            print('gladiator1', gladiator1['health'], 'HP', '|||',
-                  gladiator1['rage'], 'Rage', '|||', gladiator1['power'],
-                  'power')
-            print('gladiator2', gladiator2['health'], 'HP', '|||',
-                  gladiator2['rage'], 'Rage', '|||', gladiator2['power'],
-                  'power')
+            print('gladiator1', gladiator1['health'], 'HP |||',
+                  gladiator1['rage'], 'Rage |||', gladiator1['power'],
+                  'power, has\n', gladiator1['armor']['name'],
+                  'Armor and has the', gladiator1['weapon']['name'])
+            print('gladiator2', gladiator2['health'], 'HP |||',
+                  gladiator2['rage'], 'Rage |||', gladiator2['power'],
+                  'power, has\n', gladiator2['armor']['name'],
+                  'Armor and has the', gladiator2['weapon']['name'])
+
             break
         elif attack_method == 'q':
             print('Gladiator1: SURVIVED!!!\nGladiator2: SURVIVED!!!')
@@ -25,18 +28,14 @@ def gladiator_1_turn(gladiator1, gladiator2):
             break
         elif attack_method == 'h':
             heal(gladiator1)
-
-            heal_options = input('Would you like to use rage or power?\n')
-            if heal_options == 'rage':
-                heal(gladiator1)
-            elif heal_options == 'power':
-                heal(gladiator2)
-            print('gladiator1', gladiator1['health'], 'HP', '|||',
-                  gladiator1['rage'], 'Rage', '|||', gladiator1['power'],
-                  'power')
-            print('gladiator2', gladiator2['health'], 'HP', '|||',
-                  gladiator2['rage'], 'Rage', '|||', gladiator2['power'],
-                  'power')
+            print('gladiator1', gladiator1['health'], 'HP |||',
+                  gladiator1['rage'], 'Rage |||', gladiator1['power'],
+                  'power, has\n', gladiator1['armor']['name'],
+                  'Armor and has the', gladiator1['weapon']['name'])
+            print('gladiator2', gladiator2['health'], 'HP |||',
+                  gladiator2['rage'], 'Rage |||', gladiator2['power'],
+                  'power, has\n', gladiator2['armor']['name'],
+                  'Armor and has the', gladiator2['weapon']['name'])
 
             break
 
@@ -51,12 +50,14 @@ def gladiator_2_turn(gladiator1, gladiator2):
 
             attack(gladiator2, gladiator1)
             print('WE\'RE UNDER ATTACK!!!!!')
-            print('gladiator1', gladiator1['health'], 'HP', '|||',
-                  gladiator1['rage'], 'Rage', '|||', gladiator1['power'],
-                  'power')
-            print('gladiator2', gladiator2['health'], 'HP', '|||',
-                  gladiator2['rage'], 'Rage', '|||', gladiator2['power'],
-                  'power')
+            print('gladiator1', gladiator1['health'], 'HP |||',
+                  gladiator1['rage'], 'Rage |||', gladiator1['power'],
+                  'power, has\n', gladiator1['armor']['name'],
+                  'Armor and has the', gladiator1['weapon']['name'])
+            print('gladiator2', gladiator2['health'], 'HP |||',
+                  gladiator2['rage'], 'Rage |||', gladiator2['power'],
+                  'power, has\n', gladiator2['armor']['name'],
+                  'Armor and has the', gladiator2['weapon']['name'])
             break
         elif gladiator_2 == 'q':
             print('Gladiator1: SURVIVED!!!\nGladiator2: SURVIVED!!!')
@@ -67,32 +68,34 @@ def gladiator_2_turn(gladiator1, gladiator2):
             break
         elif gladiator_2 == 'h':
             heal(gladiator2)
-            print('gladiator1', gladiator1['health'], 'HP', '|||',
-                  gladiator1['rage'], 'Rage', '|||', gladiator1['power'],
-                  'power')
-            print('gladiator2', gladiator2['health'], 'HP', '|||',
-                  gladiator2['rage'], 'Rage', '|||', gladiator2['power'],
-                  'power')
+            print('gladiator1', gladiator1['health'], 'HP |||',
+                  gladiator1['rage'], 'Rage |||', gladiator1['power'],
+                  'power, has\n', gladiator1['armor']['name'],
+                  'Armor and has the', gladiator1['weapon']['name'])
+            print('gladiator2', gladiator2['health'], 'HP |||',
+                  gladiator2['rage'], 'Rage |||', gladiator2['power'],
+                  'power, has\n', gladiator2['armor']['name'],
+                  'Armor and has the', gladiator2['weapon']['name'])
             break
 
 
 def battle():
 
-    g1 = new_gladiator(200, 0, 10, 20, 0, 'warhammer')
+    g1 = new_gladiator(200, 0, 10, 20, 0, 'bow', 'light')
 
-    g2 = new_gladiator(200, 0, 10, 20, 0, 'sword')
+    g2 = new_gladiator(200, 0, 10, 20, 0, 'sword', 'semi_light')
     while True:
         if is_dead(g1) == True:
-            print('GLADIATOR2: DID NOT SURVIVE!!!')
-            print('GLADIATOR1: WINS!!!')
+            print('GLADIATOR1: DID NOT SURVIVE!!!')
+            print('GLADIATOR2: WINS!!!')
             break
             exit()
 
         gladiator_1_turn(g1, g2)
 
         if is_dead(g2) == True:
-            print('GLADIATOR1: DID NOT SURVIVE!!!')
-            print('GLADIATOR2: WINS!!!')
+            print('GLADIATOR2: DID NOT SURVIVE!!!')
+            print('GLADIATOR1: WINS!!!')
             break
             exit()
 
