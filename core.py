@@ -84,12 +84,12 @@ def attack(attacker, defender):
         attacker['power'] = attacker['power'] + 20
         defender['health'] = defender['health'] - normal_hit
 
-    if attacker['power'] >= 260:
+    if attacker['power'] >= 330:
         defender['health'] = defender['health'] - defender['health']
 
 
 def heal(gladiator):
-    if gladiator['health'] >= 100:
+    if gladiator['health'] >= 200:
         print('You cannot heal if your health is at the max level.')
     elif gladiator['power'] >= 80 and gladiator['health'] <= 60:
         gladiator['power'] = gladiator['power'] - gladiator['power']
